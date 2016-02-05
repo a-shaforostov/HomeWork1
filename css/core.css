@@ -1,5 +1,5 @@
 * {
-  margin: 0px 0px 0px 0px;
+  margin: 0;
 }
 
 body {
@@ -9,9 +9,9 @@ body {
 
 #page-div {
   width: 512px;
-  background-color: #ffffff;
   padding: 30px 50px 50px;
   margin: 4px auto 50px;
+  background-color: #ffffff;
   -webkit-box-shadow: 0px 0px 3px 0px rgba(187,187,187,1);
   -moz-box-shadow: 0px 0px 3px 0px rgba(187,187,187,1);
   box-shadow: 0px 0px 3px 0px rgba(187,187,187,1);
@@ -21,15 +21,15 @@ body {
   text-align: center;
 }
 
-/* Чтобы не ломать стиль у всех заголовков, присваиваем нужный стиль
+/* Чтобы не ломать стиль у всех заголовков h3, присваиваем нужный стиль
 только тем заголовкам h3, которые являются потомками первой секции */
 .first-section > h3 {
-  text-align: center;
   margin: 0px 0px 10px 0px ;
+  text-align: center;
 }
 
 p {
-  margin: 5px 15px 0px 15px;
+  margin: 5px 15px 0px;
 }
 
 .section {
@@ -38,7 +38,11 @@ p {
   padding-bottom: 20px;
 }
 
-.first-section {
+/* Можно было использовать селектор .first-section
+Так как он идет после селектора .section, он бы перекрыл его свойство border.
+Но чтобы данное правило не зависило от позиции в файле, делаем его более
+специфичным через указание предка, чем добавляем ему вес. */
+#page-div .first-section {
   border: none;
 }
 
@@ -49,7 +53,7 @@ ul {
 }
 
 .copyright {
-  font-style: italic;
   color: gray;
+  font-style: italic;
   font-size: 12pt;
 }
